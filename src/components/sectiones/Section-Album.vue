@@ -1,12 +1,10 @@
 <template>
-   <section>
+   <section class="section">
        <div class="container">
           <div class="row">
-             <div class="col">1</div>
-             <div class="col">2</div>
-             <div class="col">3</div>
-             <div class="col">4</div>
-             <div class="col">5</div>
+             <div class="col-12 col-sm-6 col-lg-2" v-for="(album, index) in albums " :key="index" :album="album"><CardAlbum></CardAlbum> </div>
+            
+           
           </div>
        </div>
    </section>
@@ -14,28 +12,28 @@
 
 <script> 
  import axios from 'axios';
+import CardAlbum from '../common/CardAlbum.vue';
 
 
 export default {
-   name: 'Section-Album.vue',
+    name: "Section-Album.vue",
     data() {
-    return{
-        albums: [],
-    };
-   
- },
-   created(){
-            axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-      .then((response) => {
-         // handle success
-         this.albums =  response.data ;
-      })
-      .catch((error) => {
-         // handle error
-         console.log(error);
-      })
-      ;
-   }
+        return {
+            albums: [],
+        };
+    },
+    created() {
+        axios.get("https://flynn.boolean.careers/exercises/api/array/music")
+            .then((response) => {
+            // handle success
+            this.albums = response.data;
+        })
+            .catch((error) => {
+            // handle error
+            console.log(error);
+        });
+    },
+    components: { CardAlbum }
 }
 </script>
 
