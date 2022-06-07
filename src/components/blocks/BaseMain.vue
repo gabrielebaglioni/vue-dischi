@@ -12,7 +12,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+ main{
+         background-color: #1E2D3B;
+         
+ }
   
 
 </style>

@@ -1,10 +1,8 @@
 <template>
    <section class="section">
-       <div class="container">
-          <div class="row">
-             <div class="col-12 col-sm-6 col-lg-2" v-for="(album, index) in albums " :key="index" :album="album"><CardAlbum></CardAlbum> </div>
-            
-           
+       <div class="container py-5">
+          <div class="row gap-4 justify-content-center">
+               <CardAlbum class="col-12 col-md4 col-xl-2" v-for="(album, index) in albums " :key="index " :album="album" />
           </div>
        </div>
    </section>
@@ -38,5 +36,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ .section{
 
+ }
+ .row{
+    display: flex;
+ }
 </style>
