@@ -1,21 +1,36 @@
 <template>
    <section>
-       
+       <div class="container">
+          <div class="row">
+             <div class="col">1</div>
+             <div class="col">2</div>
+             <div class="col">3</div>
+             <div class="col">4</div>
+             <div class="col">5</div>
+          </div>
+       </div>
    </section>
 </template>
 
 <script> 
  import axios from 'axios';
 
+
 export default {
    name: 'Section-Album.vue',
+    data() {
+    return{
+        albums: [],
+    };
+   
+ },
    created(){
             axios.get('https://flynn.boolean.careers/exercises/api/array/music')
-      .then(function (response) {
+      .then((response) => {
          // handle success
-         console.log(response.data);
+         this.albums =  response.data ;
       })
-      .catch(function (error) {
+      .catch((error) => {
          // handle error
          console.log(error);
       })
