@@ -2,7 +2,7 @@
    <section class="section">
        <div class="container py-5">
           <div class="row gap-4 justify-content-center">
-               <CardAlbum class="col-12 col-md4 col-xl-2" v-for="(album, index) in albums " :key="index " :album="album" />
+               <CardAlbum class="col-12 col-md4 col-xl-2" v-for="(album, index) in filterAlbum " :key="index " :album="album" />
           </div>
        </div>
    </section>
@@ -36,7 +36,7 @@ export default {
     },
     computed:{
       filterAlbum(){
-        return this.albums.filter((elm) => elm.genre === this.select.value);
+        return this.albums.filter((elm) => elm.genre === this.select.value || this.select.value === 'All');
       }
   },
    
