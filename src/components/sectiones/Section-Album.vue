@@ -11,13 +11,16 @@
 <script> 
  import axios from 'axios';
 import CardAlbum from '../common/CardAlbum.vue';
+import select from '../shared/select';
 
 
 export default {
     name: "Section-Album.vue",
+     components: { CardAlbum },
     data() {
         return {
             albums: [],
+            select
         };
     },
     created() {
@@ -31,7 +34,12 @@ export default {
             console.log(error);
         });
     },
-    components: { CardAlbum }
+    computed:{
+      filterAlbum(){
+        return this.albums.filter((elm) => elm.genre === this.select.value);
+      }
+  },
+   
 }
 </script>
 
